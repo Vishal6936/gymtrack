@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>GymTrack</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <!-- ambient background glow (pure CSS, follows the accent colour) -->
+  <div class="ambient" aria-hidden="true"></div>
+
+  <!-- splash: shown until the data has loaded, then fades -->
+  <div class="splash" aria-hidden="true"><div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="color:var(--accent)"><path d="M6.5 6.5v11M17.5 6.5v11M3 9.5v5M21 9.5v5M6.5 12h11"/></svg>
+    <strong>GYMTRACK</strong>
+  </div></div>
+
+  <main id="view" class="view"></main>
+
+  <!-- floating live bar: session / rest timer while on other tabs -->
+  <div id="livebar" class="livebar" role="button" aria-label="Open timer"></div>
+
+  <nav id="nav" class="nav" aria-label="Main"></nav>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <!-- No CDN files: everything below is local so the app works fully offline. -->
+  <script src="js/ui.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/screens/today.js"></script>
+  <script src="js/screens/log.js"></script>
+  <script src="js/screens/snapshot.js"></script>
+  <script src="js/screens/activity.js"></script>
+  <script src="js/screens/plan.js"></script>
+  <script src="js/screens/progress.js"></script>
+  <script src="js/screens/settings.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
