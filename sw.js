@@ -4,7 +4,7 @@
  *   (stale-while-revalidate), so updates arrive on the next launch without
  *   bumping version numbers by hand (the v1 problem).
  * Bump VERSION only if you rename or remove files. */
-const VERSION = 'gymtrack-v2-11';
+const VERSION = 'gymtrack-v2-12'; // bumped so phones pick up the new Today/Timer/Progress right away
 const FILES = [
   './', './index.html', './manifest.webmanifest', './css/app.css',
   './js/ui.js', './js/store.js', './js/timer.js', './js/app.js',
