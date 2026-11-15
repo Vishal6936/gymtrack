@@ -1166,3 +1166,50 @@ html[data-vt="back"]::view-transition-new(page) { animation-name: vt-in-back; }
 
 /* Inter is wider than the system font: keep "100%" inside the Today ring */
 .hero-ring .ring-label strong { font-size: 27px; letter-spacing: -0.045em; }
+
+/* ---- compact Timer tab (saves ~90px so the rest bar, time, "Resume now" and the
+   "phase timer paused" line stay above the tab bar without scrolling) ---- */
+.dial-wrap { padding: 6px 0 2px; }
+.dial-time { font-size: 66px; }
+.timer-controls { gap: 20px; }
+.round { width: 50px; height: 50px; }
+.fab-big { width: 70px; height: 70px; }
+.quickrest { gap: 8px; padding: 4px 2px; }
+.rest-live { gap: 8px; }
+
+/* ---- Progress: new analysis cards ---- */
+.card-foot { margin-top: 8px; font-size: 12px; line-height: 1.4; }
+/* sets-per-muscle bars coloured against the target band (beats the global gradient fill) */
+.bar-fill.band-low { background: #f87171 !important; }  /* below target: soft red so it stands apart from the gold accent */
+.bar-fill.band-ok { background: linear-gradient(90deg, var(--accent), var(--hl)) !important; }
+.bar-fill.band-high { background: var(--hl) !important; opacity: .7; }
+/* push / pull / legs stacked bar */
+.ppl { display: flex; flex-direction: column; gap: 10px; }
+.ppl-bar { display: flex; height: 12px; border-radius: 8px; overflow: hidden; gap: 2px; background: rgba(255,255,255,.05); }
+.ppl-bar i { display: block; min-width: 0; }
+.ppl-0 { background: var(--accent) !important; }
+.ppl-1 { background: var(--hl) !important; }
+.ppl-2 { background: rgba(255,255,255,.45) !important; }
+.ppl-legend { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; }
+.ppl-legend span { display: inline-flex; align-items: center; gap: 6px; }
+/* exercise detail notes + last 3 sessions */
+.ex-note { display: flex; flex-direction: column; gap: 3px; padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,.03); font-size: 13.5px; line-height: 1.4; margin-top: 8px; }
+.ex-note.warn { border-left: 3px solid var(--warn); }
+.last3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.last3 > div { display: flex; flex-direction: column; gap: 3px; padding: 10px; border-radius: 12px; background: rgba(255,255,255,.03); min-width: 0; }
+.last3 small { margin-bottom: 2px; }
+/* PR period switch + grouped rows */
+.pr-wrap { display: flex; flex-direction: column; gap: 10px; }
+.pr-wrap > .seg.mini { align-self: flex-start; }
+.pr-period { display: flex; flex-direction: column; gap: 8px; padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,.03); }
+.chip.sm { height: 28px; padding: 0 10px; font-size: 12px; font-weight: 500; }
+/* PRs per month column chart */
+.colchart { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; align-items: end; height: 120px; }
+.colchart > div { display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; }
+.colchart i { flex: 1; width: 100%; max-width: 18px; display: flex; align-items: flex-end; border-radius: 5px; background: rgba(255,255,255,.05); overflow: hidden; }
+.colchart b { display: block; width: 100%; border-radius: 5px; background: linear-gradient(0deg, var(--accent), var(--hl)); }
+.colchart small { font-size: 10px; color: var(--dim); min-height: 12px; }
+/* wider value column so labels like "24.3 high" / "1.35× BW" stay on one line */
+.bars-wide .bar-row { grid-template-columns: minmax(84px, 1.1fr) 1fr 74px; }
+.bars-wide .bar-val { white-space: nowrap; }
+.chip.sm { max-width: 100%; overflow: hidden; text-overflow: ellipsis; display: inline-block; line-height: 28px; }
