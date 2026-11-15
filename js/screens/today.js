@@ -1,4 +1,4 @@
-/* Today — the dashboard: today's ring + muscles, this week, streaks, 30-day
+/* Today — the dashboard: today's ring + day title, this week, streaks, 30-day
  * completion and the Saturday check-in (which opens Body). */
 (function () {
   'use strict';
@@ -10,7 +10,6 @@
     const t = S.todayKey();
     const { done, total } = S.plannedDoneCount(t);
     const pct = total ? Math.round((done / total) * 100) : null;
-    const muscles = S.musclesFor(t);
     const streak = S.currentStreak(); const longest = S.longestStreak();
     // 30-day completion series (rest/omitted days are gaps, missed days = 0)
     const series = []; let sum = 0, n = 0;
@@ -51,8 +50,8 @@
         h('div.hero-ring' + (total && done >= total ? '.complete' : ''), heroRing),
         h('div.hero-info', [
           h('span.pill.' + statusCls, status),
+          // the day's title exactly as named in the Plan tab (muscle chips removed)
           h('h2', S.dayLabel(t)),
-          h('div.chips.tight', muscles.filter((m) => m !== 'Rest').map((m) => h('span.mchip', { style: { '--m': muscleColor(m) } }, m))),
         ])
       ]),
 
