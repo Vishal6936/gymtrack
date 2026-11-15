@@ -439,7 +439,7 @@
     const max = Math.max(1, ...rows.map((r) => r.value));
     return h('div.bars', rows.map((r) => h('div.bar-row', [
       h('span.bar-label', [h('i.dot', { style: { background: r.color || 'var(--accent)' } }), r.label]),
-      h('div.bar-track', h('div.bar-fill', { style: { width: (r.value / max) * 100 + '%', background: r.color || 'var(--accent)' } })),
+      h('div.bar-track', h('div.bar-fill' + (r.cls ? '.' + r.cls : ''), { style: { width: (r.value / max) * 100 + '%', background: r.color || 'var(--accent)' } })),
       h('span.bar-val', r.display || fmtNum(r.value) + (opts.unit || ''))
     ])));
   }
