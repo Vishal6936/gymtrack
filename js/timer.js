@@ -225,8 +225,9 @@
       view.lbl = h('div.dial-phase'); view.big = h('button.dial-time.mono.gtext', { onclick: () => { if (m === 'session') { T.session.showElapsed = !T.session.showElapsed; persist(); updateTimerView(); } }, 'aria-label': 'Toggle time left / elapsed' }); view.sub = h('small.muted');
       const dots = m === 'session' ? h('div.phase-dots', L.phases.map((_, i) => h('i' + (i === T.session.phaseIdx ? '.on' : i < T.session.phaseIdx ? '.past' : '')))) : null;
       const center = h('div.dial-center', [view.lbl, view.big, view.sub, dots]);
-      // the ring sits 14px inside its square so the arc tip + glow never get cut off
-      const SIZE = 320, STROKE = 8, INSET = 14, R = (SIZE - STROKE) / 2 - INSET;
+      // the ring sits 14px inside its square so the arc tip + glow never get cut off.
+      // 276px (was 320) so the rest bar + "Resume now" fit above the tab bar without scrolling
+      const SIZE = 276, STROKE = 8, INSET = 14, R = (SIZE - STROKE) / 2 - INSET;
       view.dial.append(ring(0, SIZE, STROKE, 'var(--accent)', center, INSET));
       const svg = view.dial.querySelector('svg');
       // a faint watch-face of 60 ticks inside the ring
